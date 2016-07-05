@@ -1,7 +1,7 @@
 package main.app.core;
 
 
-public class ClockWidgetApp extends JFrame implements Runnable,  ClockWidget{
+public class ClockWidgetApp implements Runnable,  ClockWidget{
 	/**
 	 * auto generated serial version UID imposed by JFrame
 	 */
