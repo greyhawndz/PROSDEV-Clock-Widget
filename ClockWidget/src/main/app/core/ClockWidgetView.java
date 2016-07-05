@@ -1,9 +1,12 @@
 package main.app.core;
 
-/*
- * Interface to use when introducing new clock widgets.
- */ 	
-public interface ClockWidgetView {
+import java.awt.Font;
+import java.util.Calendar;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class ClockWidgetView {
 
 
 	private JLabel lblSs; // label for hour
@@ -47,10 +50,31 @@ public interface ClockWidgetView {
 		setVisible(true);
 	}
 	
-	void updateTime();
-	
 	/*
-	 * starts the clock
+	 * updates the time based from system time (hour (12hrs format), minute, second)(non-Javadoc)
+	 * @see main.app.core.ClockWidget#updateTime()
 	 */
+	public void updateTime() {
+		setHour();
+		setMinute();
+		setSecond();
+	}
 
+	private void setHour() {
+		Calendar cal = Calendar.getInstance();
+		int hour = cal.get(Calendar.HOUR);
+		lblHh.setText((hour < 10 ? "0" : "") + hour);
+	}
+	
+	private void setMinute() {
+		Calendar cal = Calendar.getInstance();
+		int minute = cal.get(Calendar.MINUTE);
+		lblMm.setText((minute < 10 ? "0" : "") + minute);
+	}
+
+	private void setSecond() {
+		Calendar cal = Calendar.getInstance();
+		int second = cal.get(Calendar.SECOND);
+		lblSs.setText((second < 10 ? "0" : "") + second);
+	}
 }

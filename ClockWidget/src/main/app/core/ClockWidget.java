@@ -19,6 +19,7 @@ public interface ClockWidget {
 	 * used to get time as "HH:MM:SS"
 	 */
 	String getTime();
+	
 	/*
 	 * starts the clock
 	 */
