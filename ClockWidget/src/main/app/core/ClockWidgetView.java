@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 public class ClockWidgetView extends JFrame  {
 
-
+        private static final long serialVersionUID = -8951174492255254603L;
 	private JLabel labelSecond; 
 	private JLabel labelColonMinuteSecond;
 	private JLabel labelMinute;
@@ -54,27 +54,16 @@ public class ClockWidgetView extends JFrame  {
 	 * updates the time based from system time (hour (12hrs format), minute, second)(non-Javadoc)
 	 * @see main.app.core.ClockWidget#updateTime()
 	 */
-	public void updateTime() {
-		setHour();
-		setMinute();
-		setSecond();
-	}
 
-	private void setHour() {
-		Calendar cal = Calendar.getInstance();
-		int hour = cal.get(Calendar.HOUR);
+	protected void setHour(int hour) {
 		labelHour.setText((hour < 10 ? "0" : "") + hour);
 	}
 	
-	private void setMinute() {
-		Calendar cal = Calendar.getInstance();
-		int minute = cal.get(Calendar.MINUTE);
+	protected void setMinute(int minute) {
 		labelMinute.setText((minute < 10 ? "0" : "") + minute);
 	}
 
-	private void setSecond() {
-		Calendar cal = Calendar.getInstance();
-		int second = cal.get(Calendar.SECOND);
+	protected void setSecond(int second) {
 		labelSecond.setText((second < 10 ? "0" : "") + second);
 	}
 }
