@@ -6,7 +6,7 @@ import java.util.Calendar;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class ClockWidgetView {
+public class ClockWidgetView extends JFrame  {
 
 
 	private JLabel lblSs; // label for hour
