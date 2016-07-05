@@ -9,11 +9,11 @@ import javax.swing.JLabel;
 public class ClockWidgetView extends JFrame  {
 
 
-	private JLabel lblSs; // label for hour
-	private JLabel lblColMs; // colon between hour and minute
-	private JLabel lblMm; // label for minute
-	private JLabel lblColHm; // label for colon between minute and second
-	private JLabel lblHh; // label for second
+	private JLabel labelSecond; 
+	private JLabel labelColonMinuteSecond;
+	private JLabel labelMinute;
+	private JLabel labelColonHourMinute;
+	private JLabel labelHour;
 	/*
 	 * initialize the UI(non-Javadoc)
 	 * @see main.app.core.ClockWidget#initUI()
@@ -21,30 +21,30 @@ public class ClockWidgetView extends JFrame  {
 	public void initUI() {
 		getContentPane().setLayout(null);
 		
-		lblSs = new JLabel("HH"); 
-		lblSs.setFont(new Font("Segoe UI", Font.BOLD, 18));
-		lblSs.setBounds(120, 11, 30, 50);
-		getContentPane().add(lblSs);
+		labelSecond = new JLabel("HH"); 
+		labelSecond.setFont(new Font("Segoe UI", Font.BOLD, 18));
+		labelSecond.setBounds(120, 11, 30, 50);
+		getContentPane().add(labelSecond);
 		
-		lblColMs = new JLabel(":"); 
-		lblColMs.setFont(new Font("Segoe UI", Font.BOLD, 18));
-		lblColMs.setBounds(103, 11, 11, 50);
-		getContentPane().add(lblColMs);
+		labelColonMinuteSecond = new JLabel(":"); 
+		labelColonMinuteSecond.setFont(new Font("Segoe UI", Font.BOLD, 18));
+		labelColonMinuteSecond.setBounds(103, 11, 11, 50);
+		getContentPane().add(labelColonMinuteSecond);
 		
-		lblMm = new JLabel("MM");
-		lblMm.setFont(new Font("Segoe UI", Font.BOLD, 18));
-		lblMm.setBounds(59, 11, 34, 50);
-		getContentPane().add(lblMm);
+		labelMinute = new JLabel("MM");
+		labelMinute.setFont(new Font("Segoe UI", Font.BOLD, 18));
+		labelMinute.setBounds(59, 11, 34, 50);
+		getContentPane().add(labelMinute);
 		
-		lblColHm = new JLabel(":");
-		lblColHm.setFont(new Font("Segoe UI", Font.BOLD, 18));
-		lblColHm.setBounds(42, 11, 11, 50);
-		getContentPane().add(lblColHm);
+		labelColonHourMinute = new JLabel(":");
+		labelColonHourMinute.setFont(new Font("Segoe UI", Font.BOLD, 18));
+		labelColonHourMinute.setBounds(42, 11, 11, 50);
+		getContentPane().add(labelColonHourMinute);
 		
-		lblHh = new JLabel("SS");
-		lblHh.setFont(new Font("Segoe UI", Font.BOLD, 18));
-		lblHh.setBounds(10, 11, 27, 50);
-		getContentPane().add(lblHh);
+		labelHour = new JLabel("SS");
+		labelHour.setFont(new Font("Segoe UI", Font.BOLD, 18));
+		labelHour.setBounds(10, 11, 27, 50);
+		getContentPane().add(labelHour);
 		setSize(185, 111);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
@@ -63,18 +63,18 @@ public class ClockWidgetView extends JFrame  {
 	private void setHour() {
 		Calendar cal = Calendar.getInstance();
 		int hour = cal.get(Calendar.HOUR);
-		lblHh.setText((hour < 10 ? "0" : "") + hour);
+		labelHour.setText((hour < 10 ? "0" : "") + hour);
 	}
 	
 	private void setMinute() {
 		Calendar cal = Calendar.getInstance();
 		int minute = cal.get(Calendar.MINUTE);
-		lblMm.setText((minute < 10 ? "0" : "") + minute);
+		labelMinute.setText((minute < 10 ? "0" : "") + minute);
 	}
 
 	private void setSecond() {
 		Calendar cal = Calendar.getInstance();
 		int second = cal.get(Calendar.SECOND);
-		lblSs.setText((second < 10 ? "0" : "") + second);
+		labelSecond.setText((second < 10 ? "0" : "") + second);
 	}
 }
