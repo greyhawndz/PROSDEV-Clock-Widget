@@ -3,7 +3,7 @@ package test.app.core;
 import main.app.core.ClockWidgetModel;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
-import main.app.core.ClockWidgetApp;
+//import main.app.core.ClockWidgetApp;
 import main.app.core.ClockWidgetController;
 import main.app.core.ClockWidgetView;
 
