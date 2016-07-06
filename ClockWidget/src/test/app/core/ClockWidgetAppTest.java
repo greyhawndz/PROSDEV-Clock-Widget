@@ -25,13 +25,13 @@ public class ClockWidgetAppTest {
 	@Test
 	public void shouldConfigureClock() {
 		// given
-		ClockWidgetApp app = new ClockWidgetApp();
-		
+		ClockWidgetController controller = new ClockWidgetController();
+		ClockModel clock = new ClockModel(controller);
 		// when
-		app.config();
+		
 		
 		// then
-		assertEquals(true, app.isReady());
+		assertEquals(true, clock.isReady());
 	}
 	
 	@Test
