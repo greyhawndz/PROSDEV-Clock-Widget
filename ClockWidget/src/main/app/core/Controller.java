@@ -10,11 +10,11 @@ package main.app.core;
  * @author William
  */
 public interface Controller {
-    public void config();
+/*    public void config();
     public boolean isReady();
     public void stop();
+    public boolean isRunning();*/
     public void start();
-    public boolean isRunning();
     public void updateTime();
     public void setHour();
     public void setMinute();

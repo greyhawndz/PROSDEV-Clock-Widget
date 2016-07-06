@@ -13,43 +13,19 @@ import java.util.Calendar;
  */
 public class ClockWidgetController implements Controller, Runnable {
     
-    private int updateInt;
+/*    private int updateInt;
     private boolean stop;
-    private boolean ready;
+    private boolean ready;*/
     private ClockWidgetView view;
+    private Clock clock;
 
     public ClockWidgetController(ClockWidgetView view) {
         this.view = view;
     }
     
-    
-    
-    @Override
-    public void config() {
-        updateInt = 100; // updates every 100 milliseconds
-        ready = true;
-    }
-
-    @Override
-    public boolean isReady() {
-        return ready;
-    }
-
-    @Override
-    public void stop() {
-        stop = true;
-    }
-
     @Override
     public void start() {
         new Thread(this).start();
-    }
-
-    
-
-    @Override
-    public boolean isRunning() {
-        return !stop;
     }
 
     @Override
@@ -68,21 +44,21 @@ public class ClockWidgetController implements Controller, Runnable {
     @Override
     public void updateTime() {
         setHour();
-	setMinute();
-	setSecond();
+        setMinute();
+        setSecond();
     }
 
     @Override
     public void setHour() {
         Calendar cal = Calendar.getInstance();
-	int hour = cal.get(Calendar.HOUR);
+        int hour = cal.get(Calendar.HOUR);
         view.setHour(hour);
     }
 
     @Override
     public void setMinute() {
         Calendar cal = Calendar.getInstance();
-	int minute = cal.get(Calendar.MINUTE);
+        int minute = cal.get(Calendar.MINUTE);
         view.setMinute(minute);
     }
 
@@ -93,6 +69,26 @@ public class ClockWidgetController implements Controller, Runnable {
         view.setSecond(second);
     }
 
-   
+    /*    @Override
+    public void config() {
+        updateInt = 100; // updates every 100 milliseconds
+        ready = true;
+    }
+
+    @Override
+    public boolean isReady() {
+        return ready;
+    }
+
+    @Override
+    public void stop() {
+        stop = true;
+    }
+    
+    @Override
+    public boolean isRunning() {
+        return !stop;
+    }*/
+
     
 }
