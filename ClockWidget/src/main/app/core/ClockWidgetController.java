@@ -17,10 +17,14 @@ public class ClockWidgetController implements Controller, Runnable {
     private boolean stop;
     private boolean ready;*/
     private ClockWidgetView view;
-    private Clock clock;
+    private ClockModel clock;
+    private int updateInt;
+    private boolean stop;
 
-    public ClockWidgetController(ClockWidgetView view) {
-        this.view = view;
+    public ClockWidgetController() {
+        view = new ClockWidgetView();
+        clock = new ClockModel(this);
+        clock.config();
     }
     
     @Override
@@ -37,58 +41,29 @@ public class ClockWidgetController implements Controller, Runnable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			updateTime();
+			clock.updateTime();
 		}
     }
 
-    @Override
-    public void updateTime() {
-        setHour();
-        setMinute();
-        setSecond();
-    }
+   
 
     @Override
-    public void setHour() {
-        Calendar cal = Calendar.getInstance();
-        int hour = cal.get(Calendar.HOUR);
+    public void setHour(int hour) {
         view.setHour(hour);
     }
 
     @Override
-    public void setMinute() {
-        Calendar cal = Calendar.getInstance();
-        int minute = cal.get(Calendar.MINUTE);
+    public void setMinute(int minute) {
+        
         view.setMinute(minute);
     }
 
     @Override
-    public void setSecond() {
-        Calendar cal = Calendar.getInstance();
-	int second = cal.get(Calendar.SECOND);
+    public void setSecond(int second) {
         view.setSecond(second);
     }
 
-    /*    @Override
-    public void config() {
-        updateInt = 100; // updates every 100 milliseconds
-        ready = true;
-    }
-
-    @Override
-    public boolean isReady() {
-        return ready;
-    }
-
-    @Override
-    public void stop() {
-        stop = true;
-    }
-    
-    @Override
-    public boolean isRunning() {
-        return !stop;
-    }*/
+   
 
     
 }

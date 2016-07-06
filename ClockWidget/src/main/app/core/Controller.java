@@ -15,8 +15,7 @@ public interface Controller {
     public void stop();
     public boolean isRunning();*/
     public void start();
-    public void updateTime();
-    public void setHour();
-    public void setMinute();
-    public void setSecond();
+    public void setHour(int hour);
+    public void setMinute(int minute);
+    public void setSecond(int second);
 }
