@@ -1,6 +1,6 @@
 package test.app.core;
 
-import main.app.core.ClockModel;
+import main.app.core.ClockWidgetModel;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
 import main.app.core.ClockWidgetApp;
@@ -8,6 +8,8 @@ import main.app.core.ClockWidgetController;
 import main.app.core.ClockWidgetView;
 
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
 
 public class ClockWidgetAppTest {
 	@Test
@@ -26,60 +28,56 @@ public class ClockWidgetAppTest {
 	public void shouldConfigureClock() {
 		// given
 		ClockWidgetController controller = new ClockWidgetController();
-		ClockModel clock = new ClockModel(controller);
+		
 		// when
 		
 		
 		// then
-		assertEquals(true, clock.isReady());
+		assertEquals(true, controller.isReady());
 	}
 	
 	@Test
 	public void shouldUpdateTime() throws InterruptedException {
 		// given
-		ClockWidgetView app = new ClockWidgetView();
+		
                 ClockWidgetController controller = new ClockWidgetController();
-                ClockModel clock = new ClockModel(controller);
-		app.initUI();
-		String currentTime = clock.getTime();
+		
+		String currentTime = controller.getTime();
 		
 		// when
 		Thread.sleep(1000);
-		clock.updateTime();
+		
 		
 		// then
-		assertNotSame(currentTime, clock.getTime());
+		assertNotSame(currentTime, controller.getTime());
 	}
 	
 	@Test
 	public void shouldStartTime() {
 		// given
-		ClockWidgetView app = new ClockWidgetView();
+		
                 ClockWidgetController controller = new ClockWidgetController();
-                ClockModel clock = new ClockModel(controller);
-		app.initUI();
+               
+		
 		
 		// when
 		controller.start();
 		
 		// then
-		assertEquals(true, clock.isRunning());
+		assertEquals(true, controller.isRunning());
 	}
 	
 	@Test
 	public void shouldStopTime() {
 		// given
-		ClockWidgetView app = new ClockWidgetView();
                 ClockWidgetController controller = new ClockWidgetController();
-                ClockModel clock = new ClockModel(controller);
-		app.initUI();
 		controller.start();
-		assertEquals(true, clock.isRunning());
+		assertEquals(true, controller.isRunning());
 		
 		// when
-		clock.stop();
+		controller.stop();
 		
 		// then
-		assertEquals(false, clock.isRunning());
+		assertEquals(false, controller.isRunning());
 	}
 }

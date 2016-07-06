@@ -2,16 +2,15 @@ package main.app.core;
 
 import java.util.Calendar;
 
-public class ClockModel {
+public class ClockWidgetModel {
 	
     private int hour, minute, second;
     private int updateInt;
-    private boolean stop;
     private boolean ready;
     private String time;
     private ClockWidgetController controller;
         
-    public ClockModel(ClockWidgetController controller){
+    public ClockWidgetModel(ClockWidgetController controller){
         this.controller = controller;
     }
 
@@ -54,23 +53,7 @@ public class ClockModel {
 		return second;
     }
 	
-    public void stop() {
-		stop = true;
-    }
 	
-    public boolean isReady() {
-		return ready;
-    }
-	
-    public void config() {
-        updateInt = 100; // updates every 100 milliseconds
-	ready = true;
-    }
-	
-    public boolean isRunning() {
-        return !stop;
-    }
-        
     public void updateTime() {
         setHour();
         setMinute();

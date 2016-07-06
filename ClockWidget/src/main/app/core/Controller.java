@@ -18,4 +18,9 @@ public interface Controller {
     public void setHour(int hour);
     public void setMinute(int minute);
     public void setSecond(int second);
+    public void stop();
+    public boolean isRunning();
+    public void config();
+    public boolean isReady();
+    public String getTime();
 }
