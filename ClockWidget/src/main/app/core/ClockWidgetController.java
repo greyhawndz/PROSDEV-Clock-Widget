@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main.app.core;
 
 import java.util.Calendar;
@@ -13,9 +8,6 @@ import java.util.Calendar;
  */
 public class ClockWidgetController implements Controller, Runnable {
     
-/*    private int updateInt;
-    private boolean stop;
-    private boolean ready;*/
     private ClockWidgetView view;
     private ClockWidgetModel clock;
     private boolean stop;
